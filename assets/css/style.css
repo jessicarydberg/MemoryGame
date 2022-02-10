@@ -7,6 +7,7 @@
 /* General */
 body {
     margin: 2rem;
+    background-color: rgb(134, 89, 89);
 }
 
 section {
@@ -29,11 +30,18 @@ p {
 
 /* Cards */
 .cards {
-    
+    column-count: 7;
+}
+
+.card {
+    width: 102%;
+    border: solid;
+    border-radius: 10%;
+    height: 7rem;
 }
 
 .closed {
-
+    filter: brightness(0);
 }
 
 .paired {
@@ -42,6 +50,10 @@ p {
 
 .win {
 
+}
+
+.hidden {
+    display: none;
 }
 
 /* Score */
