@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let button = document.getElementsByTagName("button")
     button[0].addEventListener("click", function() {
-        console.log(elements)
         playGame();
     });
 
@@ -32,14 +31,21 @@ function playGame() {
         let source = shuffledCards[i].getAttribute("src");
         let img = document.createElement("img");
         img.setAttribute("src", source);
-        img.className = "card";
+        img.className = "card closed";
         let cards = document.getElementsByClassName('cards')
         cards[0].appendChild(img);
     };
+
+    let closedCards = document.getElementsByTagName("img")
+    for (let i = 0; i < closedCards.length; i++) {
+        closedCards[i].addEventListener("click", function() {
+            openCard();
+        });
+    }
 };
 
 function openCard() {
-    
+    alert("hello");
 };
 
 function checkPair() {
