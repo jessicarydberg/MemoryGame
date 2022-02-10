@@ -36,20 +36,28 @@ function playGame() {
         cards[0].appendChild(img);
     };
 
+    let turnedCards = [];
     let closedCards = document.getElementsByTagName("img")
     for (let i = 0; i < closedCards.length; i++) {
         closedCards[i].addEventListener("click", function() {
-            openCard();
+            openCard(i, turnedCards);
         });
     }
 };
 
-function openCard() {
-    alert("hello");
+function openCard(i, turnedCards) {
+    let card = document.getElementsByTagName("img")[i];
+    card.classList.remove("closed");
+
+    turnedCards.push(card);
+
+    if (turnedCards.length === 2) {
+        checkPair(turnedCards);
+    }
 };
 
 function checkPair() {
-
+    alert("hello from checkPair")
 };
 
 function addMove() {
