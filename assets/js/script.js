@@ -22,6 +22,6 @@ function addPair() {
 
 };
 
-recordCount() {
+function recordCount() {
 
 };

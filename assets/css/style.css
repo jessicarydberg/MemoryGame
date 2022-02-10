@@ -6,21 +6,21 @@
 
 /* General */
 body {
-
+    margin: 2rem;
 }
 
 section {
-
-}
-
-header {
-
+    margin: 2rem;
 }
 
 /* Header */
+header {
+    text-align: center;
+}
 
 h1 {
-
+    font-size: x-large;
+    padding: 1rem;
 }
 
 p {
@@ -45,17 +45,29 @@ p {
 }
 
 /* Score */
-
-.movecount {
-
+.score {
+    text-align: center;
 }
 
-.recordcount {
+.move-count {
+    display: inline;
+    padding: 1rem;
+}
 
+.record-count {
+    display: inline;
+    padding: 1rem;
 }
 
 /* Footer */
+footer {
+    text-align: center;
+}
 
 button {
-
+    border: solid;
+    border-radius: 10%;
+    background-color: brown;
+    font-size: 1rem;
+    padding: 0.5rem;
 }
