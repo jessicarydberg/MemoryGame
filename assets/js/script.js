@@ -56,8 +56,17 @@ function openCard(i, turnedCards) {
     }
 };
 
-function checkPair() {
-    alert("hello from checkPair")
+function checkPair(turnedCards) {
+    let source1 = turnedCards[0].getAttribute("src");
+    let source2 = turnedCards[1].getAttribute("src");
+    if (source1 == source2) {
+        turnedCards[0].className = "card paired";
+        turnedCards[1].className = "card paired";
+    } else {
+        turnedCards[0].className = "card closed";
+        turnedCards[1].className = "card closed";
+    }
+    turnedCards.splice(0, 2);
 };
 
 function addMove() {

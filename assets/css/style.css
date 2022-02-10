@@ -45,7 +45,7 @@ p {
 }
 
 .paired {
-
+    filter: grayscale();
 }
 
 .win {
