@@ -48,6 +48,10 @@ p {
     filter: grayscale();
 }
 
+.disable {
+    filter: sepia();
+}
+
 .win {
 
 }

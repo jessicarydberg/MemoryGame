@@ -32,29 +32,35 @@ function playGame() {
         let img = document.createElement("img");
         img.setAttribute("src", source);
         img.className = "card closed";
-        let cards = document.getElementsByClassName('cards')
+  9999999999999999999999999999+3
+  26261111110      let cards = document.getElementsByClassName('cards')
         cards[0].appendChild(img);
     };
 
+    let x = function() {
+        openCard(i, turnedCards);
+    }
+
     let turnedCards = [];
-    let closedCards = document.getElementsByTagName("img")
+    let closedCards = document.getElementsByClassName("closed")
     for (let i = 0; i < closedCards.length; i++) {
-        closedCards[i].addEventListener("click", function() {
-            openCard(i, turnedCards);
-        });
+        closedCards[i].addEventListener("click", x, true);
     }
 };
 
 function openCard(i, turnedCards) {
     let card = document.getElementsByTagName("img")[i];
     card.classList.remove("closed");
+    card.removeEventListener("click", function() {
+        openCard(i, turnedCards);
+    }, true);
 
     turnedCards.push(card);
 
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards);
-        }, 2000);    
+        }, 500);    
     }
 };
 
@@ -69,6 +75,7 @@ function checkPair(turnedCards) {
         turnedCards[1].className = "card closed";
     }
     turnedCards.splice(0, 2);
+    console.log(turnedCards)
 };
 
 function addMove() {
