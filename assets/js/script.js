@@ -52,7 +52,9 @@ function openCard(i, turnedCards) {
     turnedCards.push(card);
 
     if (turnedCards.length === 2) {
-        checkPair(turnedCards);
+        setTimeout( function() {
+            checkPair(turnedCards);
+        }, 2000);    
     }
 };
 
