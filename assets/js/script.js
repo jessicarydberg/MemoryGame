@@ -1,3 +1,5 @@
+//Add eventlistener to button when the page is loaded
+//and call function startGame.
 document.addEventListener("DOMContentLoaded", function() {
     let button = document.getElementsByTagName("button")
     button[0].addEventListener("click", function() {
@@ -20,7 +22,7 @@ function startGame() {
     }
 
     //With help of random array,
-    //Create an array of the images in random order.
+    //Create an array of the hidden images in random order.
     let cards = document.getElementsByClassName("hidden");
     let shuffledCards = []
     for(let i = 0; i < 20; i++) {
@@ -45,25 +47,28 @@ function playGame() {
     let cards = document.getElementsByClassName("closed");
 
     let turnedCards = [];
-    for (let i = 0; i < cards.length; i++) {
-        let open = function() {
-            openCard(turnedCards, i, cards);
-        }
-        cards[i].addEventListener("click", open, true);
+    for (let card of cards) {
+        card.addEventListener("click", function() {
+            openCard(turnedCards, card);
+        });
     }
 }
 
-function openCard(turnedCards, i, cards) {
-
-    cards[i].classList.remove("closed");
-    cards[i].removeEventListener("click", open, true)
-    turnedCards.push(cards[i]);
-
+function openCard(turnedCards, card) {
+    console.log(card)
+    card.classList.remove("closed");
+    //cards[i].removeEventListener("click", open, true)
+    turnedCards.push(card);
+    console.log(turnedCards)
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards);
         }, 500);    
     }
+
+    delete turnedCards;
+    console.log(turnedCards)
+
 };
 
 function checkPair(turnedCards) {
@@ -80,8 +85,8 @@ function checkPair(turnedCards) {
 
         turnedCards[0].className = "card closed";
         turnedCards[1].className = "card closed";
-        turnedCards[0].addEventListener("click", open, true);
-        turnedCards[1].addEventListener("click", open, true);
+        //turnedCards[0].addEventListener("click", open, true);
+        //turnedCards[1].addEventListener("click", open, true);
         
     }
     
