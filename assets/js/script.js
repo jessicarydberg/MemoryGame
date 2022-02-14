@@ -71,18 +71,19 @@ function startGame() {
  * Call checkPair function when 2 cards are clicked.
  */
 function openCard(turnedCards, card) {
-    console.log(card.classList)
+    //console.log(card.classList)
     card.classList.remove("closed");
-    console.log(card.classList)
+    //console.log(card.classList)
     card.removeEventListener("click", function() {
         openCard(turnedCards, card);
     }, true);
     turnedCards.push(card);
-    console.log(turnedCards)
+    //console.log(turnedCards)
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards);
             turnedCards.splice(0, 2);
+            addMove();
         }, 500);    
     }
 };
@@ -116,10 +117,11 @@ function checkPair(turnedCards) {
 };
 
 function addMove() {
-
+    let moves = parseInt(document.getElementById("moves").innerText);
+    document.getElementById("moves").innerText = ++moves;
 };
 
-function addPair() {
+function winGame() {
 
 };
 
