@@ -122,25 +122,33 @@ function checkPair(turnedCards) {
     }
 };
 
+/**
+ * increase the number of moves everytime two cards have been turned.
+ */
 function addMove() {
     let moves = parseInt(document.getElementById("moves").innerText);
     document.getElementById("moves").innerText = ++moves;
 };
 
 /**
- * 
+ * Calculate if all pairs are found and if so, alert: congratulations!
  */
 function winGame() {
     
     let paired = document.getElementsByClassName("card paired");
     if (paired.length === 20) {
         alert("You won!");
-        let moves = parseInt(document.getElementById("moves").innerText);
-        recordCount(moves);
+        recordCount();
     };
     
 };
 
-function recordCount(moves) {
-    alert("Hello from recordCount function!")
+function recordCount() {
+    let moves = parseInt(document.getElementById("moves").innerText);
+    let oldRecord = parseInt(document.getElementById("record").innerText);
+    if (moves < oldRecord) {
+        document.getElementById("record").innerText = moves;
+    } else if (oldRecord === 0) {
+        document.getElementById("record").innerText = moves;
+    }
 };
