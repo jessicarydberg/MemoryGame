@@ -2,7 +2,7 @@
 //and call function startGame.
 document.addEventListener("DOMContentLoaded", function() {
 
-    let button = document.getElementsByTagName("button")
+    let button = document.getElementsByTagName("button");
     button[0].addEventListener("click", function() {
 
         startGame();
@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function() {
     startGame();
 
 });
+
+// Declair variables to the global scope so it can be used in removing and adding eventlisteners to the images.
+let turnedCards = [];
+let open = function(e) {
+
+    openCard(turnedCards, e.currentTarget);
+
+};
 
 /**
  * Create playground with shuffled cards
@@ -26,10 +34,10 @@ function startGame() {
 
         oldCards[0].remove();
 
-    };
+    }
     
     //Create an array of 20 random unique numbers
-    let arrayRandom = []
+    let arrayRandom = [];
     while (arrayRandom.length < 20) {
 
         let number = Math.floor(Math.random()*20);
@@ -43,12 +51,12 @@ function startGame() {
 
     //Use ArrayRandom and create an array of the hidden images in random order.
     let cards = document.getElementsByClassName("hidden");
-    let shuffledCards = []
+    let shuffledCards = [];
     for(let i = 0; i < 20; i++) {
 
-        shuffledCards.push(cards[arrayRandom[i]])
+        shuffledCards.push(cards[arrayRandom[i]]);
 
-    };
+    }
     
     //Create html code of the cards and push to the html document.
     for (let shuffledCard of shuffledCards) {
@@ -60,7 +68,7 @@ function startGame() {
         let cardDiv = document.getElementsByClassName('cards');
         cardDiv[0].appendChild(img);
 
-    };
+    }
 
     cards = document.getElementsByClassName("closed");
     for (let card of cards) {
@@ -69,15 +77,7 @@ function startGame() {
 
     }
     
-};
-
-// Declair variables to the global scope so it can be used in removing and adding eventlisteners
-let turnedCards = [];
-let open = function(e) {
-
-    openCard(turnedCards, e.currentTarget);
-
-};
+}
 
 /**
  * Show the card clicked and remove its eventlistener so it can't be clicked while open.
@@ -95,9 +95,9 @@ function openCard(turnedCards, card) {
             turnedCards.length = 0;
             addMove();
         }, 500);    
-    };
+    }
 
-};
+}
 
 /**
  * Check if the two cards clicked are matching.
@@ -114,7 +114,7 @@ function checkPair(turnedCards) {
         turnedCards[0].className = "card paired";
         turnedCards[1].className = "card paired";
         setTimeout( function() {
-            winGame()
+            winGame();
             }, 500);
         
     } else {
@@ -123,8 +123,8 @@ function checkPair(turnedCards) {
         turnedCards[1].className = "card closed";
         turnedCards[0].addEventListener("click", open, true);
         turnedCards[1].addEventListener("click", open, true);
-    };
-};
+    }
+}
 
 /**
  * Show number of moves the user has done during this game.
@@ -134,7 +134,7 @@ function addMove() {
     let moves = parseInt(document.getElementById("moves").innerText);
     document.getElementById("moves").innerText = ++moves;
 
-};
+}
 
 /**
  * Calculate if all pairs are found and if so, alert: congratulations!
@@ -145,9 +145,9 @@ function winGame() {
     if (paired.length === 20) {
         alert("You won!");
         recordCount();
-    };
+    }
     
-};
+}
 
 /**
  * Show the lowest number of moves per game.
@@ -161,6 +161,6 @@ function recordCount() {
         document.getElementById("record").innerText = moves;
     } else if (oldRecord === 0) {
         document.getElementById("record").innerText = moves;
-    };
+    }
 
-};
+}

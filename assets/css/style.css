@@ -24,10 +24,6 @@ h1 {
     padding: 1rem;
 }
 
-p {
-
-}
-
 /* Cards */
 .cards {
     column-count: 7;
@@ -45,15 +41,7 @@ p {
 }
 
 .paired {
-    filter: grayscale();
-}
-
-.disable {
-    filter: sepia();
-}
-
-.win {
-
+    filter: grayscale(0);
 }
 
 .hidden {
