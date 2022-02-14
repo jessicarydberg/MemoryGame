@@ -52,15 +52,16 @@ function startGame() {
     };
 
     cards = document.getElementsByClassName("closed");
-    let turnedCards = [];
     for (let card of cards) {
-        let open = function() {
-            openCard(turnedCards, card);
-        }
         card.addEventListener("click", open, true);
     }
-
+    
 };
+
+let turnedCards = [];
+let open = function(e) {
+    openCard(turnedCards, e.currentTarget);
+}
 
 /**
  * Show the card clicked and remove eventlistener for it so it cant be clicked while open.
@@ -69,7 +70,7 @@ function startGame() {
 function openCard(turnedCards, card) {
     console.log(card)
     card.classList.remove("closed");
-    //card.removeEventListener("click", open, true);
+    card.removeEventListener("click", open, true);
 
 
     turnedCards.push(card);
@@ -77,7 +78,7 @@ function openCard(turnedCards, card) {
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards, card);
-            turnedCards.splice(0, 2);
+            turnedCards.length = 0;
             addMove();
         }, 500);    
     }
@@ -105,8 +106,8 @@ function checkPair(turnedCards, card) {
 
         turnedCards[0].className = "card closed";
         turnedCards[1].className = "card closed";
-        //turnedCards[0].addEventListener("click", open, true);
-        //turnedCards[1].addEventListener("click", open, true);
+        turnedCards[0].addEventListener("click", open, true);
+        turnedCards[1].addEventListener("click", open, true);
     }
 };
 
