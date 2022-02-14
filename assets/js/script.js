@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * Create playground with shuffled cards
  */
 function startGame() {
+    
+    //Set the counter for number of moves to 0
+    document.getElementById("moves").innerText = 0;
 
     //Create an array of 20 random unique numbers
     let arrayRandom = []
@@ -74,9 +77,9 @@ function openCard(turnedCards, card) {
     //console.log(card.classList)
     card.classList.remove("closed");
     //console.log(card.classList)
-    card.removeEventListener("click", function() {
-        openCard(turnedCards, card);
-    }, true);
+    //card.removeEventListener("click", function() {
+    //    openCard(turnedCards, card);
+    //}, true);
     turnedCards.push(card);
     //console.log(turnedCards)
     if (turnedCards.length === 2) {
@@ -102,6 +105,9 @@ function checkPair(turnedCards) {
 
         turnedCards[0].className = "card paired";
         turnedCards[1].className = "card paired";
+        setTimeout( function() {
+            winGame()
+            }, 500);
         
     } else {
 
@@ -121,10 +127,20 @@ function addMove() {
     document.getElementById("moves").innerText = ++moves;
 };
 
+/**
+ * 
+ */
 function winGame() {
-
+    
+    let paired = document.getElementsByClassName("card paired");
+    if (paired.length === 20) {
+        alert("You won!");
+        let moves = parseInt(document.getElementById("moves").innerText);
+        recordCount(moves);
+    };
+    
 };
 
-function recordCount() {
-
+function recordCount(moves) {
+    alert("Hello from recordCount function!")
 };
