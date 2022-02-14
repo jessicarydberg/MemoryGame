@@ -15,9 +15,16 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 function startGame() {
     
-    //Set the counter for number of moves to 0
-    document.getElementById("moves").innerText = 0;
+    //Reset the counter for number of moves to 0 and remove all cards.
 
+    document.getElementById("moves").innerText = 0;
+    
+    let oldCards = document.getElementsByClassName("card");
+    console.log(oldCards)
+    while (oldCards.length > 0) {
+        oldCards[0].remove();
+    };
+    
     //Create an array of 20 random unique numbers
     let arrayRandom = []
     while (arrayRandom.length < 20) {
@@ -56,32 +63,17 @@ function startGame() {
 };
 
 /**
- * Set eventlisteners to all cards with the backside up.
- */
-/*function playGame(cards) {
-    console.log(cards)
-    let turnedCards = [];
-    for (let card of cards) {
-        card.addEventListener("click", function() {
-            openCard(turnedCards, card);
-        }, true);
-    }
-}
-*/
-
-/**
  * Show the card clicked and remove eventlistener for it so it cant be clicked while open.
  * Call checkPair function when 2 cards are clicked.
  */
 function openCard(turnedCards, card) {
-    //console.log(card.classList)
+
     card.classList.remove("closed");
-    //console.log(card.classList)
-    //card.removeEventListener("click", function() {
+    //card.removeEventListener("click", function() { <---------------------remove eventlisteners
     //    openCard(turnedCards, card);
     //}, true);
     turnedCards.push(card);
-    //console.log(turnedCards)
+
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards);
@@ -123,7 +115,7 @@ function checkPair(turnedCards) {
 };
 
 /**
- * increase the number of moves everytime two cards have been turned.
+ * Show number of moves the user has done during this game.
  */
 function addMove() {
     let moves = parseInt(document.getElementById("moves").innerText);
@@ -143,6 +135,9 @@ function winGame() {
     
 };
 
+/**
+ * Show the lowest number of moves per game.
+ */
 function recordCount() {
     let moves = parseInt(document.getElementById("moves").innerText);
     let oldRecord = parseInt(document.getElementById("record").innerText);
