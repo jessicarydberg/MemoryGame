@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+/**
+ * Create playground with shuffled cards
+ */
 function startGame() {
 
     //Create an array of 20 random unique numbers
@@ -39,38 +42,56 @@ function startGame() {
         cardDiv[0].appendChild(img);
     };
 
-    playGame()
-
-};
-
-function playGame() {
-    let cards = document.getElementsByClassName("closed");
-
+    cards = document.getElementsByClassName("closed");
     let turnedCards = [];
     for (let card of cards) {
         card.addEventListener("click", function() {
             openCard(turnedCards, card);
-        });
+        }, true);
+    }
+
+};
+
+/**
+ * Set eventlisteners to all cards with the backside up.
+ */
+/*function playGame(cards) {
+    console.log(cards)
+    let turnedCards = [];
+    for (let card of cards) {
+        card.addEventListener("click", function() {
+            openCard(turnedCards, card);
+        }, true);
     }
 }
+*/
 
+/**
+ * Show the card clicked and remove eventlistener for it so it cant be clicked while open.
+ * Call checkPair function when 2 cards are clicked.
+ */
 function openCard(turnedCards, card) {
-    console.log(card)
+    console.log(card.classList)
     card.classList.remove("closed");
-    //cards[i].removeEventListener("click", open, true)
+    console.log(card.classList)
+    card.removeEventListener("click", function() {
+        openCard(turnedCards, card);
+    }, true);
     turnedCards.push(card);
     console.log(turnedCards)
     if (turnedCards.length === 2) {
         setTimeout( function() {
             checkPair(turnedCards);
+            turnedCards.splice(0, 2);
         }, 500);    
     }
-
-    delete turnedCards;
-    console.log(turnedCards)
-
 };
 
+/**
+ * Check if the two cards clicked are matching.
+ * If they are, change color and keep open.
+ * If not, turn back and add eventlisteners again.
+ */
 function checkPair(turnedCards) {
     
     let source1 = turnedCards[0].getAttribute("src");
@@ -85,13 +106,13 @@ function checkPair(turnedCards) {
 
         turnedCards[0].className = "card closed";
         turnedCards[1].className = "card closed";
-        //turnedCards[0].addEventListener("click", open, true);
-        //turnedCards[1].addEventListener("click", open, true);
-        
+
+        /*for (let card of turnedCards) {
+            card.addEventListener("click", function() {
+                openCard(turnedCards, card);
+            }, true);
+        }*/
     }
-    
-    turnedCards.splice(0, 2);
-    playGame()
 };
 
 function addMove() {
