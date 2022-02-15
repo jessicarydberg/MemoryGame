@@ -137,6 +137,22 @@ button:hover {
         margin: 1rem;
     }
 
+    h1 {
+        font-size: medium;
+    }
+
+    p {
+        font-size: small;
+    }
+
+    .card {
+        height: 17vw;
+    }
+
+    button {
+    padding: 0.2rem;
+    }
+    
 }
 
 @media screen and (max-width: 310px) {
