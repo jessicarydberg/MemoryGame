@@ -43,6 +43,10 @@ p {
     filter: brightness(0);
 }
 
+.closed:hover {
+    transform: scale(1.04);
+}
+
 .paired {
     filter: grayscale(100);
 }
@@ -77,6 +81,11 @@ button {
     background-color: brown;
     font-size: 1rem;
     padding: 0.5rem;
+
+}
+
+button:hover {
+    transform: scale(1.04);
 }
 
 /* Media queries */

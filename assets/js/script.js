@@ -111,8 +111,8 @@ function checkPair(turnedCards) {
     
     if (source1 === source2) {
 
-        turnedCards[0].className = "card paired";
-        turnedCards[1].className = "card paired";
+        turnedCards[0].className = "card paired zoom";
+        turnedCards[1].className = "card paired zoom";
         setTimeout( function() {
             winGame();
             }, 500);
@@ -140,7 +140,7 @@ function addMove() {
  * Calculate if all pairs are found and if so, alert: congratulations!
  */
 function winGame() {
-    
+
     let paired = document.getElementsByClassName("card paired");
     if (paired.length === 20) {
         alert("You won!");
