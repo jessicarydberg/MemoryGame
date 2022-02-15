@@ -7,13 +7,16 @@
     <title>Memory</title>
 </head>
 <body>
+    <!--Header-->
     <header>
         <h1>Memory Game</h1>
         <p>Hey, lets play some memory. Can you find the matching pairs?</p>
     </header>
     <section>
+        <!--Empty Div to put the cards in with javascript-->
         <div class="cards">
         </div>
+        <!--Div with hidden images to use for making the card elements-->
         <div>
             <img class="hidden" src="assets/images/china.jpg" alt="">
             <img class="hidden" src="assets/images/china.jpg" alt="">
@@ -37,16 +40,18 @@
             <img class="hidden" src="assets/images/usa.jpg" alt="">
         </div>   
     </section>
+    <!--Section for posting the scores-->
     <section class="score">
         <p class="move-count">Moves: <span id="moves">0</span></p>
         <p class="record-count">Record: <span id="record">0</span></p>
     </section>
     <footer>
+        <!--Button to let the user play another game without loading the page again-->
         <button>
             Play again
         </button>
     </footer>
- 
+    <!--Script link-->
     <script src="assets/js/script.js"></script>
 </body>
 </html>

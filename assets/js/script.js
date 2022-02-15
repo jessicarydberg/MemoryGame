@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-// Declair variables to the global scope so it can be used in removing and adding eventlisteners to the images.
+// Declair variables to the global scope so it can be used in removing and adding eventlisteners
+// to the images.
 let turnedCards = [];
 let open = function(e) {
 
@@ -70,6 +71,7 @@ function startGame() {
 
     }
 
+    //Add eventlisteners to the cards.
     cards = document.getElementsByClassName("closed");
     for (let card of cards) {
 
@@ -137,7 +139,7 @@ function addMove() {
 }
 
 /**
- * Calculate if all pairs are found and if so, alert: congratulations!
+ * Calculate if all pairs are found and post an alertmessage if they are.
  */
 function winGame() {
 
@@ -163,7 +165,7 @@ function winGame() {
 }
 
 /**
- * Show the lowest number of moves per game.
+ * Show the lowest number of moves per game since the page loaded.
  */
 function recordCount() {
 
