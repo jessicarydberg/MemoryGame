@@ -94,6 +94,13 @@ function openCard(turnedCards, card) {
     turnedCards.push(card);
 
     if (turnedCards.length === 2) {
+        //Remove all eventlisteners to make it impossible to open
+        //more then two cards at the time.
+        let cards = document.getElementsByClassName("card closed");
+        for (let card of cards) {
+            card.removeEventListener("click", open, true);
+        }
+
         setTimeout( function() {
             checkPair(turnedCards);
             turnedCards.length = 0;
@@ -115,8 +122,13 @@ function checkPair(turnedCards) {
     
     if (source1 === source2) {
 
-        turnedCards[0].className = "card paired zoom";
-        turnedCards[1].className = "card paired zoom";
+        turnedCards[0].className = "card paired";
+        turnedCards[1].className = "card paired";
+
+        let cards = document.getElementsByClassName("card closed");
+        for (let card of cards) {
+            card.addEventListener("click", open, true);
+        }
         setTimeout( function() {
             winGame();
             }, 500);
@@ -125,8 +137,10 @@ function checkPair(turnedCards) {
 
         turnedCards[0].className = "card closed";
         turnedCards[1].className = "card closed";
-        turnedCards[0].addEventListener("click", open, true);
-        turnedCards[1].addEventListener("click", open, true);
+        let cards = document.getElementsByClassName("card closed");
+        for (let card of cards) {
+            card.addEventListener("click", open, true);
+        }
     }
 }
 
