@@ -63,8 +63,10 @@ function startGame() {
     for (let shuffledCard of shuffledCards) {
 
         let source = shuffledCard.getAttribute("src");
+        let alt = shuffledCard.getAttribute("alt");
         let img = document.createElement("img");
         img.setAttribute("src", source);
+        img.setAttribute("alt", alt);
         img.className = "card closed";
         let cardDiv = document.getElementsByClassName('cards');
         cardDiv[0].appendChild(img);
