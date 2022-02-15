@@ -11,7 +11,7 @@ body {
 }
 
 section {
-    margin: 2rem;
+    margin: 1rem;
 }
 
 /* Header */
@@ -20,8 +20,11 @@ header {
 }
 
 h1 {
-    font-size: x-large;
-    padding: 1rem;
+    font-size: xx-large;
+}
+
+p {
+    font-size: large;
 }
 
 /* Cards */
@@ -33,7 +36,7 @@ h1 {
     width: 102%;
     border: solid;
     border-radius: 10%;
-    height: 7rem;
+    height: 10vw;
 }
 
 .closed {
@@ -41,7 +44,7 @@ h1 {
 }
 
 .paired {
-    filter: grayscale(0);
+    filter: grayscale(100);
 }
 
 .hidden {
@@ -74,4 +77,67 @@ button {
     background-color: brown;
     font-size: 1rem;
     padding: 0.5rem;
+}
+
+/* Media queries */
+
+@media screen and (min-height: 900px) {
+   
+    h1 {
+        font-size: xxx-large;
+    }
+
+    p {
+        font-size: large;
+    }
+
+    button {
+        padding: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    
+    .card {
+        height: 14vw;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    
+    .cards {
+        column-count: 5;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    
+    .cards {
+        column-count: 4;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    
+    .cards {
+        column-count: 3;
+    }
+
+    body {
+        margin: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 310px) {
+    
+    .move-count {
+        display: block;
+    }
+
+    p {
+        font-size: medium;
+        padding: 0.5rem;
+    }
 }
