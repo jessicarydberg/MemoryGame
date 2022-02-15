@@ -143,8 +143,21 @@ function winGame() {
 
     let paired = document.getElementsByClassName("card paired");
     if (paired.length === 20) {
-        alert("You won!");
-        recordCount();
+        
+        let moves = parseInt(document.getElementById("moves").innerText);
+        let oldRecord = parseInt(document.getElementById("record").innerText);
+        
+        if (moves < oldRecord) {
+            alert(`Congratulations to e new record! You found all the pairs with only ${moves} moves!`);
+            recordCount();
+        } else if (oldRecord === 0) {
+            alert(`Congratulations to e new record! You found all the pairs with only ${moves} moves!`);
+            recordCount();
+        } else {
+            alert(`Good job, you found all the pairs with only ${moves} moves.`);
+            recordCount();
+        }
+
     }
     
 }
