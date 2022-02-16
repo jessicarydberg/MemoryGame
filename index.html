@@ -16,7 +16,7 @@
         <!--Empty Div to put the cards in with javascript-->
         <div class="cards">
         </div>
-        <!--Div with hidden images to use for making the card elements-->
+        <!--Hidden images to use for making the card elements-->
         <div>
             <img class="hidden" src="assets/images/boat.jpg" alt="a photo of a boat">
             <img class="hidden" src="assets/images/boat.jpg" alt="a photo of a boat">
@@ -38,7 +38,18 @@
             <img class="hidden" src="assets/images/tree.jpg" alt="a photo of a tree">
             <img class="hidden" src="assets/images/waterfall.jpg" alt="a photo of a waterfall">
             <img class="hidden" src="assets/images/waterfall.jpg" alt="a photo of a waterfall">
-        </div>   
+        </div>
+        <!--Hidden moduls-->
+        <div class="modal hidden">
+            <div class="modal-content">
+                <p id="norecord"></p>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-content">
+                <p id="norecord">Congratulations to e new record!<br>You found all the pairs with only ${moves} moves!</p>
+            </div>
+        </div>
     </section>
     <!--Section for posting the scores-->
     <section class="score">
