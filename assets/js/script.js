@@ -121,7 +121,6 @@ function checkPair(turnedCards) {
     let source2 = turnedCards[1].getAttribute("src");
     
     if (source1 === source2) {
-
         turnedCards[0].className = "card paired";
         turnedCards[1].className = "card paired";
 
@@ -131,8 +130,7 @@ function checkPair(turnedCards) {
         }
         setTimeout( function() {
             winGame();
-            }, 500);
-        
+            }, 500);   
     } else {
 
         turnedCards[0].className = "card closed";
@@ -164,20 +162,64 @@ function winGame() {
         
         let moves = parseInt(document.getElementById("moves").innerText);
         let oldRecord = parseInt(document.getElementById("record").innerText);
+        let modal = document.getElementsByClassName("modal hidden")[0];
+        let div = document.getElementsByClassName("modal-content")[0];
+        
+        //Empty the content of the modal to make room for new content.
+        while (div.children.length > 0) {
+            div.children[0].remove();
+        }
         
         if (moves < oldRecord) {
-            alert(`Congratulations to e new record! You found all the pairs with only ${moves} moves!`);
+
+            modal.classList.remove("hidden");
+            let p1 = document.createElement("p");
+            p1.innerText = "Yey, you made a new record!";
+            div.appendChild(p1);
+            let br = document.createElement("br");
+            div.appendChild(br);
+            let p2 = document.createElement("p");
+            p2.innerText = `You found all the pairs with only ${moves} moves!`;
+            div.appendChild(p2);
+
+            setTimeout( function() {
+                modal.className = "modal hidden";
+            }, 5000);
+
             recordCount();
+
         } else if (oldRecord === 0) {
-            alert(`Congratulations to e new record! You found all the pairs with only ${moves} moves!`);
+
+            modal.classList.remove("hidden");
+            let p1 = document.createElement("p");
+            p1.innerText = "Yey, you made a new record!";
+            div.appendChild(p1);
+            let br = document.createElement("br");
+            div.appendChild(br);
+            let p2 = document.createElement("p");
+            p2.innerText = `You found all the pairs with only ${moves} moves!`;
+            div.appendChild(p2);
+
+            setTimeout( function() {
+                modal.className = "modal hidden";
+            }, 5000);
+
             recordCount();
+            
         } else {
-            alert(`Good job, you found all the pairs with only ${moves} moves.`);
+           
+            modal.classList.remove("hidden");
+            let p2 = document.createElement("p");
+            p2.innerText = `Good job, you found all the pairs with only ${moves} moves!`;
+            div.appendChild(p2);
+
+            setTimeout( function() {
+                modal.className = "modal hidden";
+            }, 5000);
+
             recordCount();
         }
-
-    }
-    
+    }  
 }
 
 /**
