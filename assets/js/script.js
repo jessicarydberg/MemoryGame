@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let button = document.getElementsByTagName("button");
     button[0].addEventListener("click", function() {
+        modal.className = "modal hidden";
         startGame();
     });
     startGame();
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Declair global variables
 let modal = document.getElementsByClassName("modal hidden")[0];
-let div = document.getElementsByClassName("modal-content")[0];
+let div = document.getElementsByClassName("modal-text")[0];
 let turnedCards = [];
 let open = function(e) {
     openCard(turnedCards, e.currentTarget);
@@ -136,39 +137,35 @@ function winGame() {
         if (moves < oldRecord) {
             modal.classList.remove("hidden");
             let p1 = document.createElement("p");
-            p1.innerText = "Yey, you made a new record!";
+            p1.innerText = "Yay, you made a new record!";
             div.appendChild(p1);
             let br = document.createElement("br");
             div.appendChild(br);
             let p2 = document.createElement("p");
-            p2.innerText = `You found all the pairs with only ${moves} moves!`;
+            p2.innerText = `You found all the matching pairs with only ${moves} moves!`;
             div.appendChild(p2);
-            setTimeout( function() {
-                modal.className = "modal hidden";
-            }, 5000);
             recordCount();
         } else if (oldRecord === 0) {
             modal.classList.remove("hidden");
             let p1 = document.createElement("p");
-            p1.innerText = "Yey, you made a new record!";
+            p1.innerText = "Good job!";
             div.appendChild(p1);
             let br = document.createElement("br");
             div.appendChild(br);
             let p2 = document.createElement("p");
-            p2.innerText = `You found all the pairs with only ${moves} moves!`;
+            p2.innerText = `You found all the matching pairs with only ${moves} moves!`;
             div.appendChild(p2);
-            setTimeout( function() {
-                modal.className = "modal hidden";
-            }, 5000);
             recordCount();
         } else {
             modal.classList.remove("hidden");
+            let p1 = document.createElement("p");
+            p1.innerText = "Good job!";
+            div.appendChild(p1);
+            let br = document.createElement("br");
+            div.appendChild(br);
             let p2 = document.createElement("p");
-            p2.innerText = `Good job, you found all the pairs with only ${moves} moves!`;
+            p2.innerText = `You found all the matching pairs with ${moves} moves!`;
             div.appendChild(p2);
-            setTimeout( function() {
-                modal.className = "modal hidden";
-            }, 5000);
             recordCount();
         }
     }  

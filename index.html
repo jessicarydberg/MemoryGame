@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Memory</title>
 </head>
@@ -42,6 +43,12 @@
         <!--Hidden moduls-->
         <div class="modal hidden">
             <div class="modal-content">
+                <div class="modal-text">
+                </div>
+                <!--Button to let the user play another game without reloading the page-->
+                <button aria-label="Click this button to play again.">
+                    Play again!
+                </button>
             </div>
         </div>
     </section>
@@ -50,12 +57,6 @@
         <p class="move-count">Moves: <span id="moves">0</span></p>
         <p class="record-count">Record: <span id="record">0</span></p>
     </section>
-    <footer>
-        <!--Button to let the user play another game without loading the page again-->
-        <button aria-label="Click this button to play again.">
-            Play again
-        </button>
-    </footer>
     <!--Script link-->
     <script src="assets/js/script.js"></script>
 </body>

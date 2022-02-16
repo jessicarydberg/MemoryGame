@@ -72,20 +72,32 @@ p {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.modal-text {
     background-color: #fbb5b5;
     padding: 37px;
-    border: 2px solid white;
-    margin: 16%;
+    border: 2px solid black;
     text-align: center;
     border-radius: 10%;
 }
 
-.modal-content p {
+.modal-text p {
     font-size: x-large;
 }
 
-.close:hover {
+.modal-content {
+    margin: 10rem 16%;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 10%;
+    background-color: brown;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 2% 43%;
+}
+
+button:hover {
     transform: scale(1.04);
 }
 
@@ -102,24 +114,6 @@ p {
 .record-count {
     display: inline;
     padding: 1rem;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-}
-
-button {
-    border: solid;
-    border-radius: 10%;
-    background-color: brown;
-    font-size: 1rem;
-    padding: 0.5rem;
-
-}
-
-button:hover {
-    transform: scale(1.04);
 }
 
 /* Media queries */
