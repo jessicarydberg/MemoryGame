@@ -30,7 +30,7 @@ h1 {
     font-weight: 2000;
 }
 
-p {
+p, button {
     font-size: large;
     font-family: Raleway, sans-serif;
 }
@@ -73,31 +73,28 @@ p {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 
 .modal-text {
     background-color: rgb(214,182,155);
-    padding: 37px;
+    padding: 1%;
     border: 2px solid black;
     text-align: center;
     border-radius: 10%;
 }
 
-.modal-text p {
-    font-size: x-large;
-}
-
 .modal-content {
-    margin: 10rem 16%;
+    margin: 20% 3rem 0;
 }
 
 button {
     border: 2px solid black;
     border-radius: 10%;
     background-color: rgb(153, 78, 41);
-    padding: 0.5rem;
-    margin: 2% 41.5%
+    padding: 1%;
+    margin: 2% 38%;
 }
 
 button:hover {
@@ -134,7 +131,7 @@ button:hover {
         font-size: xxx-large;
     }
 
-    p {
+    p, button {
         font-size: large;
     }
 
@@ -179,7 +176,7 @@ button:hover {
         font-size: medium;
     }
 
-    p {
+    p, button {
         font-size: small;
     }
 
@@ -199,7 +196,7 @@ button:hover {
         display: block;
     }
 
-    p {
+    p, button {
         font-size: medium;
         padding: 0.5rem;
     }
