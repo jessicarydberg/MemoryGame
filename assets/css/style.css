@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
 * {
     margin: 0;
@@ -9,9 +9,11 @@
 /* General */
 body {
     margin: 1.7rem;
-    background-color: rgb(134, 89, 89);
     font-family: Raleway, sans-serif;
-    font-weight: 600;
+    background: url('../images/background.jpg') center repeat;
+    background-size: cover;
+    letter-spacing: 0.1rem;
+    overflow: hidden;
 }
 
 section {
@@ -25,10 +27,12 @@ header {
 
 h1 {
     font-size: xx-large;
+    font-weight: 2000;
 }
 
 p {
     font-size: large;
+    font-family: Raleway, sans-serif;
 }
 
 /* Cards */
@@ -40,7 +44,7 @@ p {
     width: 102%;
     border: solid;
     border-radius: 10%;
-    height: 9vw;
+    height: 10.5vw;
 }
 
 .closed {
@@ -73,7 +77,7 @@ p {
 }
 
 .modal-text {
-    background-color: #fbb5b5;
+    background-color: rgb(214,182,155);
     padding: 37px;
     border: 2px solid black;
     text-align: center;
@@ -91,10 +95,9 @@ p {
 button {
     border: 2px solid black;
     border-radius: 10%;
-    background-color: brown;
-    font-size: 1rem;
+    background-color: rgb(153, 78, 41);
     padding: 0.5rem;
-    margin: 2% 43%;
+    margin: 2% 41.5%
 }
 
 button:hover {
@@ -108,13 +111,20 @@ button:hover {
 
 .move-count {
     display: inline;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .record-count {
     display: inline;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
+
+#moves, #record {
+    font-size: 2rem;
+    color: rgb(80 17 17);
+}
+
+
 
 /* Media queries */
 
@@ -137,7 +147,7 @@ button:hover {
 @media screen and (max-width: 1280px) {
     
     .card {
-        height: 14vw;
+        height: 13vw;
     }
 }
 
@@ -148,14 +158,14 @@ button:hover {
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 610px) {
     
     .cards {
         column-count: 4;
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 350px) {
     
     .cards {
         column-count: 3;

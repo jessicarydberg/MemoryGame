@@ -136,36 +136,30 @@ function winGame() {
         }
         if (moves < oldRecord) {
             modal.classList.remove("hidden");
-            let p1 = document.createElement("p");
-            p1.innerText = "Yay, you made a new record!";
-            div.appendChild(p1);
-            let br = document.createElement("br");
-            div.appendChild(br);
-            let p2 = document.createElement("p");
-            p2.innerText = `You found all the matching pairs with only ${moves} moves!`;
-            div.appendChild(p2);
+            let h1 = document.createElement("h1");
+            h1.innerText = "Yay, you made a new record!";
+            div.appendChild(h1);
+            let p = document.createElement("p");
+            p.innerText = `You found all the matching pairs with only ${moves} moves!`;
+            div.appendChild(p);
             recordCount();
         } else if (oldRecord === 0) {
             modal.classList.remove("hidden");
-            let p1 = document.createElement("p");
-            p1.innerText = "Good job!";
-            div.appendChild(p1);
-            let br = document.createElement("br");
-            div.appendChild(br);
-            let p2 = document.createElement("p");
-            p2.innerText = `You found all the matching pairs with only ${moves} moves!`;
-            div.appendChild(p2);
+            let h1 = document.createElement("h1");
+            h1.innerText = "Good job!";
+            div.appendChild(h1);
+            let p = document.createElement("p");
+            p.innerText = `You found all the matching pairs with only ${moves} moves!`;
+            div.appendChild(p);
             recordCount();
         } else {
             modal.classList.remove("hidden");
-            let p1 = document.createElement("p");
-            p1.innerText = "Good job!";
-            div.appendChild(p1);
-            let br = document.createElement("br");
-            div.appendChild(br);
-            let p2 = document.createElement("p");
-            p2.innerText = `You found all the matching pairs with ${moves} moves!`;
-            div.appendChild(p2);
+            let h1 = document.createElement("h1");
+            h1.innerText = "Good job!";
+            div.appendChild(h1);
+            let p = document.createElement("p");
+            p.innerText = `You found all the matching pairs with ${moves} moves!`;
+            div.appendChild(p);
             recordCount();
         }
     }  
