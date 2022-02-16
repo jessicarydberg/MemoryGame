@@ -8,12 +8,11 @@
 
 /* General */
 body {
-    margin: 1.7rem;
+    margin: 2vw;
     font-family: Raleway, sans-serif;
-    background: url('../images/background.jpg') center repeat;
-    background-size: cover;
+    background: url('../images/background.jpg') center no-repeat;
+    
     letter-spacing: 0.1rem;
-    overflow: hidden;
 }
 
 section {
@@ -26,12 +25,12 @@ header {
 }
 
 h1 {
-    font-size: xx-large;
+    font-size: 3vw;
     font-weight: 2000;
 }
 
 p, button {
-    font-size: large;
+    font-size: 1.5vw;
     font-family: Raleway, sans-serif;
 }
 
@@ -41,10 +40,10 @@ p, button {
 }
 
 .card {
-    width: 102%;
+    width: 95%;
     border: solid;
     border-radius: 10%;
-    height: 10.5vw;
+    height: 22vh;
 }
 
 .closed {
@@ -78,7 +77,8 @@ p, button {
 }
 
 .modal-text {
-    background-color: rgb(214,182,155);
+    background-color: rgb(230,177,140,95%);
+
     padding: 1%;
     border: 2px solid black;
     text-align: center;
@@ -86,13 +86,13 @@ p, button {
 }
 
 .modal-content {
-    margin: 20% 3rem 0;
+    margin: 14vw 5vw 0;
 }
 
 button {
     border: 2px solid black;
     border-radius: 10%;
-    background-color: rgb(153, 78, 41);
+    background-color: rgba(151, 83, 83, 95%);
     padding: 1%;
     margin: 2% 38%;
 }
@@ -117,87 +117,76 @@ button:hover {
 }
 
 #moves, #record {
-    font-size: 2rem;
-    color: rgb(80 17 17);
+    font-size: 2vw;
+    color: rgb(114, 23, 23);
 }
-
-
 
 /* Media queries */
-
-@media screen and (min-height: 900px) {
-   
-    h1 {
-        font-size: xxx-large;
-    }
-
-    p, button {
-        font-size: large;
-    }
-
-    button {
-        padding: 1.5rem;
-    }
-
-}
-
-@media screen and (max-width: 1280px) {
-    
-    .card {
-        height: 13vw;
-    }
-}
-
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 900px) {
     
     .cards {
         column-count: 5;
     }
+
+    .card {
+        height: 17vh;
+    }
+
+    h1 {
+        font-size: 4vw;
+    }
+
+    p {
+        font-size: 2vw;
+    }
+
+    #moves, #record {
+        font-size: 3vw;
+    }
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 625px) {
     
     .cards {
         column-count: 4;
     }
+
+    .card {
+        height: 14vh;
+    }
+
+    h1 {
+        font-size: 4.5vw;
+    }
+
+    p {
+        font-size: 2.5vw;
+    }
+
+    #moves, #record {
+        font-size: 4vw;
+    }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
     
     .cards {
         column-count: 3;
     }
 
-    body {
-        margin: 1rem;
+    .card {
+        height: 10vh;
     }
 
     h1 {
-        font-size: medium;
+        font-size: 5vw;
     }
 
-    p, button {
-        font-size: small;
+    p {
+        font-size: 3vw;
     }
 
-    .card {
-        height: 17vw;
-    }
-
-    button {
-    padding: 0.2rem;
-    }
-
-}
-
-@media screen and (max-width: 310px) {
-    
-    .move-count {
-        display: block;
-    }
-
-    p, button {
-        font-size: medium;
-        padding: 0.5rem;
+    #moves, #record {
+        font-size: 4.5vw;
     }
 }
