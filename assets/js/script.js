@@ -1,67 +1,48 @@
 //Add eventlistener to button when the page is loaded
 //and call function startGame.
 document.addEventListener("DOMContentLoaded", function() {
-
     let button = document.getElementsByTagName("button");
     button[0].addEventListener("click", function() {
-
         startGame();
-
     });
-
     startGame();
-
 });
 
-// Declair variables to the global scope so it can be used in removing and adding eventlisteners
-// to the images.
+// Declair global variables
+let modal = document.getElementsByClassName("modal hidden")[0];
+let div = document.getElementsByClassName("modal-content")[0];
 let turnedCards = [];
 let open = function(e) {
-
     openCard(turnedCards, e.currentTarget);
-
 };
 
 /**
  * Create playground with shuffled cards
  */
 function startGame() {
-    
     //Reset the counter for number of moves to 0 and remove all cards if there are any.
     document.getElementById("moves").innerText = 0;
-    
     let oldCards = document.getElementsByClassName("card");
     while (oldCards.length > 0) {
-
         oldCards[0].remove();
-
     }
     
     //Create an array of 20 random unique numbers
     let arrayRandom = [];
     while (arrayRandom.length < 20) {
-
         let number = Math.floor(Math.random()*20);
         if (arrayRandom.includes(number) === false) {
-
             arrayRandom.push(number);
-
         }
-
     }
-
     //Use ArrayRandom and create an array of the hidden images in random order.
     let cards = document.getElementsByClassName("hidden");
     let shuffledCards = [];
     for(let i = 0; i < 20; i++) {
-
         shuffledCards.push(cards[arrayRandom[i]]);
-
     }
-    
     //Create html code of the cards and push to the html document.
     for (let shuffledCard of shuffledCards) {
-
         let source = shuffledCard.getAttribute("src");
         let alt = shuffledCard.getAttribute("alt");
         let img = document.createElement("img");
@@ -70,17 +51,12 @@ function startGame() {
         img.className = "card closed";
         let cardDiv = document.getElementsByClassName('cards');
         cardDiv[0].appendChild(img);
-
     }
-
     //Add eventlisteners to the cards.
     cards = document.getElementsByClassName("closed");
     for (let card of cards) {
-
         card.addEventListener("click", open, true);
-
     }
-    
 }
 
 /**
@@ -88,7 +64,6 @@ function startGame() {
  * Call checkPair function when 2 cards are clicked.
  */
 function openCard(turnedCards, card) {
-
     card.classList.remove("closed");
     card.removeEventListener("click", open, true);
     turnedCards.push(card);
@@ -100,14 +75,12 @@ function openCard(turnedCards, card) {
         for (let card of cards) {
             card.removeEventListener("click", open, true);
         }
-
         setTimeout( function() {
             checkPair(turnedCards);
             turnedCards.length = 0;
             addMove();
         }, 500);    
     }
-
 }
 
 /**
@@ -116,14 +89,12 @@ function openCard(turnedCards, card) {
  * If not, turn back and add eventlisteners again.
  */
 function checkPair(turnedCards) {
-    
     let source1 = turnedCards[0].getAttribute("src");
     let source2 = turnedCards[1].getAttribute("src");
     
     if (source1 === source2) {
         turnedCards[0].className = "card paired";
         turnedCards[1].className = "card paired";
-
         let cards = document.getElementsByClassName("card closed");
         for (let card of cards) {
             card.addEventListener("click", open, true);
@@ -132,7 +103,6 @@ function checkPair(turnedCards) {
             winGame();
             }, 500);   
     } else {
-
         turnedCards[0].className = "card closed";
         turnedCards[1].className = "card closed";
         let cards = document.getElementsByClassName("card closed");
@@ -146,32 +116,24 @@ function checkPair(turnedCards) {
  * Show number of moves the user has done during this game.
  */
 function addMove() {
-
     let moves = parseInt(document.getElementById("moves").innerText);
     document.getElementById("moves").innerText = ++moves;
-
 }
 
 /**
  * Calculate if all pairs are found and post an alertmessage if they are.
  */
 function winGame() {
-
     let paired = document.getElementsByClassName("card paired");
     if (paired.length === 20) {
-        
         let moves = parseInt(document.getElementById("moves").innerText);
         let oldRecord = parseInt(document.getElementById("record").innerText);
-        let modal = document.getElementsByClassName("modal hidden")[0];
-        let div = document.getElementsByClassName("modal-content")[0];
         
         //Empty the content of the modal to make room for new content.
         while (div.children.length > 0) {
             div.children[0].remove();
         }
-        
         if (moves < oldRecord) {
-
             modal.classList.remove("hidden");
             let p1 = document.createElement("p");
             p1.innerText = "Yey, you made a new record!";
@@ -181,15 +143,11 @@ function winGame() {
             let p2 = document.createElement("p");
             p2.innerText = `You found all the pairs with only ${moves} moves!`;
             div.appendChild(p2);
-
             setTimeout( function() {
                 modal.className = "modal hidden";
             }, 5000);
-
             recordCount();
-
         } else if (oldRecord === 0) {
-
             modal.classList.remove("hidden");
             let p1 = document.createElement("p");
             p1.innerText = "Yey, you made a new record!";
@@ -199,24 +157,18 @@ function winGame() {
             let p2 = document.createElement("p");
             p2.innerText = `You found all the pairs with only ${moves} moves!`;
             div.appendChild(p2);
-
             setTimeout( function() {
                 modal.className = "modal hidden";
             }, 5000);
-
             recordCount();
-            
         } else {
-           
             modal.classList.remove("hidden");
             let p2 = document.createElement("p");
             p2.innerText = `Good job, you found all the pairs with only ${moves} moves!`;
             div.appendChild(p2);
-
             setTimeout( function() {
                 modal.className = "modal hidden";
             }, 5000);
-
             recordCount();
         }
     }  
@@ -226,7 +178,6 @@ function winGame() {
  * Show the lowest number of moves per game since the page loaded.
  */
 function recordCount() {
-
     let moves = parseInt(document.getElementById("moves").innerText);
     let oldRecord = parseInt(document.getElementById("record").innerText);
 
@@ -235,5 +186,4 @@ function recordCount() {
     } else if (oldRecord === 0) {
         document.getElementById("record").innerText = moves;
     }
-
 }
