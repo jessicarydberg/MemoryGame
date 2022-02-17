@@ -67,8 +67,6 @@ function startGame() {
  * Call checkPair function when 2 cards are clicked.
  */
 function openCard(turnedCards, card) {
-    
-    console.log(card.getAttribute("src"))
     card.classList.remove("closed");
     card.removeEventListener("click", open, true);
     turnedCards.push(card);
@@ -84,7 +82,7 @@ function openCard(turnedCards, card) {
             checkPair(turnedCards);
             turnedCards.length = 0;
             addMove();
-        }, 800);    
+        }, 650);    
     }
 }
 
