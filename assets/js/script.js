@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             modal.className = "modal hidden";
             startGame();
-        })
-    };
+        });
+    }
     startGame();
 });
 
