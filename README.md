@@ -64,7 +64,7 @@ Comments to get better grade:
 - HTML
   - No errors were returned when passing through the official <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fjessicarydberg.github.io%2FMemoryGame%2F" target="_blank">W3C validator</a>
 - CSS
-  - No errors were found when passing through the official <a href="" target="_blank">(Jigsaw) validator "Test again"</a>
+  - No errors were found when passing through the official <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fjessicarydberg.github.io%2FMemoryGame%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">(Jigsaw) validator</a>
 - Javascript
   - No errors were found when passing through the official <a href="https://jshint.com/" target="_blank">Jshint validator</a>
   - The following metrics was returned:
