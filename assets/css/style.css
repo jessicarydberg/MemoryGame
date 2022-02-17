@@ -34,7 +34,8 @@ p, button {
 
 /* Cards */
 .cards {
-    column-count: 7;
+    column-count: 6;
+    text-align: center;
 }
 
 .card {
@@ -152,7 +153,7 @@ button:hover {
     }
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 540px) {
     
     .cards {
         column-count: 4;

@@ -32,8 +32,8 @@ function startGame() {
     
     //Create an array of 20 random unique numbers
     let arrayRandom = [];
-    while (arrayRandom.length < 20) {
-        let number = Math.floor(Math.random()*20);
+    while (arrayRandom.length < 18) {
+        let number = Math.floor(Math.random()*18);
         if (arrayRandom.includes(number) === false) {
             arrayRandom.push(number);
         }
@@ -41,7 +41,7 @@ function startGame() {
     //Use ArrayRandom and create an array of the hidden images in random order.
     let cards = document.getElementsByClassName("hidden");
     let shuffledCards = [];
-    for(let i = 0; i < 20; i++) {
+    for(let i = 0; i < 18; i++) {
         shuffledCards.push(cards[arrayRandom[i]]);
     }
     //Create html code of the cards and push to the html document.
@@ -67,6 +67,8 @@ function startGame() {
  * Call checkPair function when 2 cards are clicked.
  */
 function openCard(turnedCards, card) {
+    
+    console.log(card.getAttribute("src"))
     card.classList.remove("closed");
     card.removeEventListener("click", open, true);
     turnedCards.push(card);
@@ -128,7 +130,7 @@ function addMove() {
  */
 function winGame() {
     let paired = document.getElementsByClassName("card paired");
-    if (paired.length === 20) {
+    if (paired.length === 18) {
         let moves = parseInt(document.getElementById("moves").innerText);
         let oldRecord = parseInt(document.getElementById("record").innerText);
         
