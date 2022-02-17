@@ -1,11 +1,13 @@
 //Add eventlistener to button when the page is loaded
 //and call function startGame.
 document.addEventListener("DOMContentLoaded", function() {
-    let button = document.getElementsByTagName("button");
-    button[0].addEventListener("click", function() {
-        modal.className = "modal hidden";
-        startGame();
-    });
+    let buttons = document.getElementsByTagName("button");
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            modal.className = "modal hidden";
+            startGame();
+        })
+    };
     startGame();
 });
 
@@ -80,7 +82,7 @@ function openCard(turnedCards, card) {
             checkPair(turnedCards);
             turnedCards.length = 0;
             addMove();
-        }, 500);    
+        }, 800);    
     }
 }
 
