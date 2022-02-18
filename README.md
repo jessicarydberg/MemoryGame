@@ -87,6 +87,11 @@ Comments to get better grade:
 ### Unfixed bugs
 
  - The text on "Play again!" button seems to turn out blue on some screens.
+ - It is possible to cheet in the game. There are ways to see what image the black card contains without clicking it.
+   - If you click a card, on a mobile phone screen, and hold on for a little while, it will show you a preview of the image and the game wont count it as a move.
+   ![A way to cheet on a mobile phone](assets/images/bug-cheeting-mobile.jpg)
+   - It works almost the same on a computer but you need to click and drag.
+   ![A way to cheet on a computer](assets/images/bug-cheeting-computer.jpg)
 
 ## Deployment
 
