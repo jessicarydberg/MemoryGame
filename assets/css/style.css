@@ -130,8 +130,7 @@ button:hover {
 @media screen and (max-width: 900px) {
     
     body {
-        background: url('../images/background2.jpg') center no-repeat;
-        background-size: cover
+        background: url('../images/background2.jpg');
     }
 
     .cards {
