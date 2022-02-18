@@ -89,8 +89,10 @@ Comments to get better grade:
  - The text on "Play again!" button seems to turn out blue on some screens.
  - It is possible to cheet in the game. There are ways to see what image the black card contains without clicking it.
    - If you click a card, on a mobile phone screen, and hold on for a little while, it will show you a preview of the image and the game wont count it as a move.
+
    ![A way to cheet on a mobile phone](assets/images/bug-cheeting-mobile.jpg)
    - It works almost the same on a computer but you need to click and drag.
+
    ![A way to cheet on a computer](assets/images/bug-cheeting-computer.jpg)
 
 ## Deployment
@@ -102,7 +104,7 @@ Comments to get better grade:
    - Then finally uploaded it to my GitHub repo with git push
      - When everything was done, I navigated to the Settings tab in the GitHub repository, scrolled down to "GitHub Pages" section and clicked "Check it out here!" link.
 Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
-The live link can be found here: https://jessicarydberg.github.io/MemoryGame/
+The live link can be found here: <a href="https://jessicarydberg.github.io/MemoryGame/" target="_blank">Memory game</a>
 
 ## Credits
 
