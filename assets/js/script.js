@@ -1,17 +1,14 @@
-//Add eventlistener to button when the page is loaded
-//and call function startGame.
+//Call function startGame when the page is loaded.
 document.addEventListener("DOMContentLoaded", function() {
-    let buttons = document.getElementsByTagName("button");
-    for (let button of buttons) {
-        button.addEventListener("click", function() {
-            modal.className = "modal hidden";
-            startGame();
-        });
-    }
     startGame();
 });
 
 // Declair global variables
+let buttons = document.getElementsByTagName("button");
+if (buttons.length !== 2) {
+    alert(`Invalid number of buttons`);
+    throw `Invalid number of buttons. Aborting!`;
+}
 let modal = document.getElementsByClassName("modal hidden")[0];
 let div = document.getElementsByClassName("modal-text")[0];
 let turnedCards = [];
@@ -23,6 +20,13 @@ let open = function(e) {
  * Create playground with shuffled cards
  */
 function startGame() {
+    //Add eventlisteners to the buttons and hide the modal if it is shown.
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            modal.className = "modal hidden";
+            startGame();
+        });
+    }
     //Reset the counter for number of moves to 0 and remove all cards if there are any.
     document.getElementById("moves").innerText = 0;
     let oldCards = document.getElementsByClassName("card");
@@ -39,7 +43,11 @@ function startGame() {
         }
     }
     //Use ArrayRandom and create an array of the hidden images in random order.
-    let cards = document.getElementsByClassName("hidden");
+    let cards = document.getElementsByClassName("hidden image");
+    if (cards.length !== 18) {
+        alert(`Invalid number of cards`);
+        throw `Invalid number of cards. Aborting!`;
+    }
     let shuffledCards = [];
     for(let i = 0; i < 18; i++) {
         shuffledCards.push(cards[arrayRandom[i]]);
@@ -83,6 +91,9 @@ function openCard(turnedCards, card) {
             turnedCards.length = 0;
             addMove();
         }, 650);    
+    } else if (turnedCards.length > 2) {
+        alert(`To many cards open at the same time`);
+        throw `To many cards open at the same time. Aborting!`;
     }
 }
 
@@ -164,7 +175,10 @@ function winGame() {
             div.appendChild(p);
             recordCount();
         }
-    }  
+    } else if (paired.length > 18) {
+        alert(`Invalid number of paired cards`);
+        throw `Invalid number of paired cards. Aborting!`;
+    }
 }
 
 /**
