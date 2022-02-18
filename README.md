@@ -83,10 +83,11 @@ Comments to get better grade:
      - I solved it by putting the function as a value to a variable and then declaring this variable to the global scope.
  - When the user was fast and clicked three cards before the two first cards turned black or grayscale, all three cards turned. After this the eventlisteners didn’t really work as expected on some cards and some cards didn’t turn the right way as expected.
    - I solved it by removing all eventlisteners directly after two cards was turned. This made all other cards unclickable during the time the two cards was shown.
+  - The text on "Play again!" button turned out blue on some screens.
+    - I solved it by adding color to button, h1 and p. I realised that if I didnt state what color I want it to bee, the User Agent style sheet for iOS is applying its own style/colour.
 
 ### Unfixed bugs
 
- - The text on "Play again!" button seems to turn out blue on some screens.
  - It is possible to cheet in the game. There are ways to see what image the black card contains without clicking it.
    - If you click a card, on a mobile phone screen, and hold on for a little while, it will show you a preview of the image and the game wont count it as a move.
 
